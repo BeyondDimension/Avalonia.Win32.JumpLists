@@ -1,3 +1,6 @@
+[![NuGet](https://img.shields.io/nuget/v/JumpLists.Win32.Avalonia.svg)](https://www.nuget.org/packages/JumpLists.Win32.Avalonia/)
+[![license](https://img.shields.io/badge/license-MIT%20License-yellow.svg)](https://github.com/SteamTools-Team/Avalonia.Win32.JumpLists/blob/main/LICENSE)
+
 # Avalonia.Win32.JumpLists
 System.Windows.Shell.JumpList for Avalonia  
 - 从 [WPF](https://github.com/dotnet/wpf/tree/release/5.0) 中 剥离 ```System.Windows.Shell.JumpList``` 到 Avalonia 中  
