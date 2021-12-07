@@ -1,14 +1,11 @@
-﻿#if NET_WINDOWS
-extern alias JumpLists;
-using JumpLists::System.Windows.Shell;
-using JumpLists::Avalonia.Win32.JumpLists;
-#else
-using System.Windows.Shell;
-using Avalonia.Win32.JumpLists;
-#endif
+﻿using System.Text;
 using Avalonia;
-using System.Text;
 using MessageBox.Avalonia;
+using Avalonia.Win32.JumpLists;
+#if NETFRAMEWORK
+using System.Windows.Shell;
+using JumpList = Avalonia.Win32.JumpLists.JumpList;
+#endif
 
 namespace Example
 {

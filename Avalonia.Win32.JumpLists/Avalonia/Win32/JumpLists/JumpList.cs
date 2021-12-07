@@ -25,6 +25,7 @@ namespace Avalonia.Win32.JumpLists
     using System.Windows.Shell;
 #endif
 
+#if !NETFRAMEWORK
     /// <summary>
     /// The list of possible reasons why a JumpItem would be rejected from a JumpList when applied.
     /// </summary>
@@ -112,6 +113,7 @@ namespace Avalonia.Win32.JumpLists
 
         public IList<JumpItem> RemovedItems { get; private set; }
     }
+#endif
 
     /// <summary>
     /// Manage the tasks and files that Shell associates with this application.

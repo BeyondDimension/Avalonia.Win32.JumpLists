@@ -13,7 +13,9 @@ namespace Example.ViewModels
                 @string.AppendLine(Environment.NewLine);
                 @string.AppendFormat("OSVersion: {0}", Environment.OSVersion.Version);
                 @string.AppendLine();
-#if NET_WINDOWS_10
+                @string.AppendFormat("Runtime: {0}", Environment.Version);
+                @string.AppendLine();
+#if WINDOWS10_0_17763_0_OR_GREATER
                 if (Environment.OSVersion.Version.Major == 10 && Environment.OSVersion.Version.Build >= 10240)
                 {
 #pragma warning disable CA1416 // 验证平台兼容性

@@ -1,25 +1,43 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <OutputType>WinExe</OutputType>
-    <TargetFramework>net5.0-windows10.0.19041.0</TargetFramework>
-    <SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
-    <DefineConstants>NET_WINDOWS;NET_WINDOWS_10;$(DefineConstants)</DefineConstants>
-    <Nullable>enable</Nullable>
-    <UseWindowsForms>false</UseWindowsForms>
-    <UseWPF>false</UseWPF>
-    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
-    <SignAssembly>false</SignAssembly>
-  </PropertyGroup>
-  <ItemGroup>
-    <AvaloniaResource Include="Assets\**" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Avalonia.Win32.JumpLists\Avalonia.Win32.JumpLists.csproj" Aliases="JumpLists" />
-    <PackageReference Include="System.Reactive" Version="5.0.0.1-exclude-winforms" />
-    <PackageReference Include="Avalonia" Version="0.10.0" />
-    <PackageReference Include="Avalonia.Desktop" Version="0.10.0" />
-    <PackageReference Include="Avalonia.Diagnostics" Version="0.10.0" />
-    <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.0" />
-    <PackageReference Include="MessageBox.Avalonia" Version="1.0.6" />
-  </ItemGroup>
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFrameworks>net6.0;net6.0-windows10.0.19041;net461</TargetFrameworks>
+		<SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
+		<Nullable>enable</Nullable>
+		<ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+		<SignAssembly>false</SignAssembly>
+	</PropertyGroup>
+
+	<PropertyGroup Condition=" $(TargetFramework.Contains('.0')) ">
+		<UseWindowsForms>false</UseWindowsForms>
+		<UseWPF>false</UseWPF>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<AvaloniaResource Include="Assets\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Avalonia.Win32.JumpLists\Avalonia.Win32.JumpLists.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Avalonia" Version="0.10.0" />
+		<PackageReference Include="Avalonia.Desktop" Version="0.10.0" />
+		<PackageReference Include="Avalonia.Diagnostics" Version="0.10.0" />
+		<PackageReference Include="Avalonia.ReactiveUI" Version="0.10.0" />
+		<PackageReference Include="MessageBox.Avalonia" Version="1.0.6" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" !$(TargetFramework.Contains('-windows')) ">
+		<PackageReference Include="System.Reactive" Version="5.0.0.0" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" $(TargetFramework.Contains('-windows')) ">
+		<PackageReference Include="System.Reactive" Version="5.0.0.1-exclude-winforms" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net461' OR '$(TargetFramework)' == 'net462' OR '$(TargetFramework)' == 'net47' OR '$(TargetFramework)' == 'net471' OR '$(TargetFramework)' == 'net472' OR '$(TargetFramework)' == 'net48' ">
+		<Reference Include="PresentationFramework" />
+	</ItemGroup>
 </Project>
