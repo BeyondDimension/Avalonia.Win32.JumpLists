@@ -6,8 +6,8 @@
 		<RootNamespace />
 		<Nullable>disable</Nullable>
 		<Version>1.0.0</Version>
-		<PackageProjectUrl>https://github.com/SteamTools-Team/Avalonia.Win32.JumpLists</PackageProjectUrl>
-		<RepositoryUrl>https://github.com/SteamTools-Team/Avalonia.Win32.JumpLists.git</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/BeyondDimension/Avalonia.Win32.JumpLists</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/BeyondDimension/Avalonia.Win32.JumpLists.git</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<Company />
 		<PackageReleaseNotes></PackageReleaseNotes>
