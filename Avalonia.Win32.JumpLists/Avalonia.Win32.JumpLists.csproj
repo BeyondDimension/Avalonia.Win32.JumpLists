@@ -1,35 +1,55 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <AssemblyName>JumpLists.Win32.Avalonia</AssemblyName>
-    <TargetFrameworks>netstandard2.1;net5.0</TargetFrameworks>
-    <RootNamespace />
-    <Nullable>disable</Nullable>
-    <Version>0.0.1</Version>
-    <AssemblyVersion>0.0.0.0</AssemblyVersion>
-    <PackageProjectUrl>https://github.com/SteamTools-Team/Avalonia.Win32.JumpLists</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/SteamTools-Team/Avalonia.Win32.JumpLists.git</RepositoryUrl>
-    <RepositoryType>git</RepositoryType>
-    <Company />
-    <PackageReleaseNotes></PackageReleaseNotes>
-    <Description></Description>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Authors>SteamTools-Team</Authors>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Product>System.Windows.Shell.JumpList for Avalonia</Product>
-    <PackageId>JumpLists.Win32.Avalonia</PackageId>
-    <PackageTags>taskbar-extensions;jumplist;jumptask;jumppath;win32;avalonia</PackageTags>
-  </PropertyGroup>
+	<PropertyGroup>
+		<AssemblyName>JumpLists.Win32.Avalonia</AssemblyName>
+		<TargetFrameworks>netstandard2.0;netstandard2.1;net5.0;net6.0;net461</TargetFrameworks>
+		<RootNamespace />
+		<Nullable>disable</Nullable>
+		<Version>1.0.0</Version>
+		<PackageProjectUrl>https://github.com/SteamTools-Team/Avalonia.Win32.JumpLists</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/SteamTools-Team/Avalonia.Win32.JumpLists.git</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<Company />
+		<PackageReleaseNotes></PackageReleaseNotes>
+		<Description></Description>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<Authors>SteamTools-Team</Authors>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<Product>System.Windows.Shell.JumpList for Avalonia</Product>
+		<PackageId>JumpLists.Win32.Avalonia</PackageId>
+		<PackageTags>taskbar-extensions;jumplist;jumptask;jumppath;win32;avalonia</PackageTags>
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<EmbedUntrackedSources>true</EmbedUntrackedSources>
+		<IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Avalonia" Version="0.10.0" />
-    <PackageReference Include="Microsoft.Win32.Registry" Version="5.0.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Avalonia" Version="0.10.0" />
+		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <EmbeddedResource Update="Resources\Strings.resx">
-      <Generator />
-    </EmbeddedResource>
-  </ItemGroup>
+	<ItemGroup Condition=" $(TargetFramework.StartsWith('netstandard')) ">
+		<PackageReference Include="Microsoft.Win32.Registry" Version="4.0.0" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" $(TargetFramework.StartsWith('net5.0')) ">
+		<PackageReference Include="Microsoft.Win32.Registry" Version="5.0.0" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" $(TargetFramework.StartsWith('netstandard2.0')) OR '$(TargetFramework)' == 'net461' OR '$(TargetFramework)' == 'net462' OR '$(TargetFramework)' == 'net47' OR '$(TargetFramework)' == 'net471' OR '$(TargetFramework)' == 'net472' OR '$(TargetFramework)' == 'net48' ">
+		<PackageReference Include="IndexRange" Version="1.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Update="Resources\Strings.resx">
+			<Generator />
+		</EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net461' OR '$(TargetFramework)' == 'net462' OR '$(TargetFramework)' == 'net47' OR '$(TargetFramework)' == 'net471' OR '$(TargetFramework)' == 'net472' OR '$(TargetFramework)' == 'net48' ">
+		<Reference Include="PresentationFramework" />
+	</ItemGroup>
 
 </Project>
