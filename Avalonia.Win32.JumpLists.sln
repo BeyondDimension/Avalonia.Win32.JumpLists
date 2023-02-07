@@ -1,11 +1,22 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31105.61
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.Win32.JumpLists", "Avalonia.Win32.JumpLists\Avalonia.Win32.JumpLists.csproj", "{A1A0D32C-3B27-4FAF-A40C-1D332D090813}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.Win32.JumpLists", "src\Avalonia.Win32.JumpLists\Avalonia.Win32.JumpLists.csproj", "{A1A0D32C-3B27-4FAF-A40C-1D332D090813}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Example", "Example\Example.csproj", "{130DA598-4A0C-4785-A3B9-3E2A5AA7A1A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Example", "src\Example\Example.csproj", "{130DA598-4A0C-4785-A3B9-3E2A5AA7A1A0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Root", "_Root", "{B49D1106-8F6B-4987-BBE8-2C40E33B7280}"
+	ProjectSection(SolutionItems) = preProject
+		src\.editorconfig = src\.editorconfig
+		.gitignore = .gitignore
+		src\Directory.Build.props = src\Directory.Build.props
+		ref\DirectoryPackages\Directory.Packages.props = ref\DirectoryPackages\Directory.Packages.props
+		src\GeneratePackage.props = src\GeneratePackage.props
+		NuGet.Config = NuGet.Config
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

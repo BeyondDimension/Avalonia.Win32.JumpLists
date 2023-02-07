@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFrameworks>net7.0-windows10.0.19041;net461</TargetFrameworks>
+		<SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
+		<ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+		<SignAssembly>false</SignAssembly>
+		<GenerateDocumentationFile>false</GenerateDocumentationFile>
+		<AssemblyName>Avalonia.Win32.JumpLists Example</AssemblyName>
+	</PropertyGroup>
+
+	<PropertyGroup Condition=" $(TargetFramework.Contains('windows')) ">
+		<UseWindowsForms>false</UseWindowsForms>
+		<UseWPF>false</UseWPF>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<AvaloniaResource Include="Assets\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Avalonia.Win32.JumpLists\Avalonia.Win32.JumpLists.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Avalonia" />
+		<PackageReference Include="Avalonia.Desktop" />
+		<PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" />
+		<PackageReference Include="Avalonia.ReactiveUI" />
+		<PackageReference Include="PInvoke.User32" />
+		<PackageReference Include="System.Reactive" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net461' OR '$(TargetFramework)' == 'net462' OR '$(TargetFramework)' == 'net47' OR '$(TargetFramework)' == 'net471' OR '$(TargetFramework)' == 'net472' OR '$(TargetFramework)' == 'net48' ">
+		<Reference Include="PresentationFramework" />
+	</ItemGroup>
+</Project>

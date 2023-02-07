@@ -1,0 +1,28 @@
+<Window
+    x:Class="Example.Views.MainWindow"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="using:Example.ViewModels"
+    Title="Avalonia.Win32.JumpLists Example"
+    Width="600"
+    Height="450"
+    MinWidth="320"
+    MinHeight="320"
+    d:DesignHeight="450"
+    d:DesignWidth="600"
+    Icon="/Assets/avalonia-logo.ico"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel />
+    </Design.DataContext>
+
+    <TextBlock
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center"
+        Text="{Binding Greeting}" />
+
+</Window>
