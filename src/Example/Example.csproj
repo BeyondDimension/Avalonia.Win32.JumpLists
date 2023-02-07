@@ -9,6 +9,17 @@
 		<AssemblyName>Avalonia.Win32.JumpLists Example</AssemblyName>
 	</PropertyGroup>
 
+	<PropertyGroup Condition="'$(Configuration)'=='Release'">
+		<AllowedReferenceRelatedFileExtensions>
+			<!-- Prevent default XML and PDB files copied to output in RELEASE. 
+           		 Only *.allowedextension files will be included, which doesn't exist in my case.
+       		-->
+			.allowedextension
+		</AllowedReferenceRelatedFileExtensions>
+		<DebugType>none</DebugType>
+		<DebugSymbols>false</DebugSymbols>
+	</PropertyGroup>
+
 	<PropertyGroup Condition=" $(TargetFramework.Contains('windows')) ">
 		<UseWindowsForms>false</UseWindowsForms>
 		<UseWPF>false</UseWPF>
