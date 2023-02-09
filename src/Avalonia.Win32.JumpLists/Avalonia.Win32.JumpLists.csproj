@@ -6,7 +6,8 @@
 		<RootNamespace />
 		<Product>System.Windows.Shell.JumpList for Avalonia</Product>
 		<PackageId>JumpLists.Win32.Avalonia</PackageId>
-		<PackageTags>taskbar-extensions;jumplist;jumptask;jumppath;win32;avalonia</PackageTags>
+		<PackageTags>BeyondDimension taskbar-extensions;jumplist;jumptask;jumppath;win32;avalonia</PackageTags>
+		<Description>https://github.com/BeyondDimension/Avalonia.Win32.JumpLists</Description>
 	</PropertyGroup>
 
 	<ItemGroup>
