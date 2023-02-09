@@ -45,7 +45,9 @@ jobs:
     runs-on: windows-latest
     strategy:
       matrix:
-        ProjectName: [ Avalonia.Win32.JumpLists ]
+        include:
+          - ProjectName: "Avalonia.Win32.JumpLists"
+            PackageId: "JumpLists.Win32.Avalonia"
 
     steps:
       - name: Checkout code
@@ -72,10 +74,10 @@ jobs:
       - name: Push nuget packages
         shell: pwsh
         run: |
-          dotnet nuget push pkg\${{ matrix.ProjectName }}*.nupkg -s https://nuget.pkg.github.com/BeyondDimension -k ${{ secrets.RMBADMIN_TOKEN }} --skip-duplicate
-          dotnet nuget push pkg\${{ matrix.ProjectName }}*.snupkg -s https://nuget.pkg.github.com/BeyondDimension -k ${{ secrets.RMBADMIN_TOKEN }} --skip-duplicate
-          dotnet nuget push pkg\${{ matrix.ProjectName }}*.nupkg -s https://api.nuget.org/v3/index.json -k ${{ secrets.NUGET_API_KEY }} --skip-duplicate
-          dotnet nuget push pkg\${{ matrix.ProjectName }}*.snupkg -s https://api.nuget.org/v3/index.json -k ${{ secrets.NUGET_API_KEY }} --skip-duplicate
+          dotnet nuget push pkg\${{ matrix.PackageId }}*.nupkg -s https://nuget.pkg.github.com/BeyondDimension -k ${{ secrets.RMBADMIN_TOKEN }} --skip-duplicate
+          dotnet nuget push pkg\${{ matrix.PackageId }}*.snupkg -s https://nuget.pkg.github.com/BeyondDimension -k ${{ secrets.RMBADMIN_TOKEN }} --skip-duplicate
+          dotnet nuget push pkg\${{ matrix.PackageId }}*.nupkg -s https://api.nuget.org/v3/index.json -k ${{ secrets.NUGET_API_KEY }} --skip-duplicate
+          dotnet nuget push pkg\${{ matrix.PackageId }}*.snupkg -s https://api.nuget.org/v3/index.json -k ${{ secrets.NUGET_API_KEY }} --skip-duplicate
   release:
     name: Release
     needs: build
