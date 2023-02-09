@@ -45,7 +45,7 @@ jobs:
     runs-on: windows-latest
     strategy:
       matrix:
-        ProjectName: [ BD.SteamClient ]
+        ProjectName: [ Avalonia.Win32.JumpLists ]
 
     steps:
       - name: Checkout code
